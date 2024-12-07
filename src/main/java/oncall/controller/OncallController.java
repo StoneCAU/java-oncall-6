@@ -1,5 +1,8 @@
 package oncall.controller;
 
+import java.util.List;
+import oncall.domain.Staff;
+import oncall.domain.Staffs;
 import oncall.domain.WorkInfo;
 import oncall.exception.OncallException;
 import oncall.validator.InputValidator;
@@ -9,6 +12,7 @@ import oncall.view.OutputView;
 public class OncallController {
     public void run() {
         WorkInfo workInfo = getWorkInfo();
+        Staffs staffs = getStaffs();
     }
 
     private WorkInfo getWorkInfo() {
@@ -16,6 +20,19 @@ public class OncallController {
             try {
                 String input = InputView.inputMouthAndDay();
                 return InputValidator.validateWorkInfo(input);
+            } catch (OncallException e) {
+                OutputView.printErrorMessage(e.getMessage());
+            }
+        }
+    }
+
+    private Staffs getStaffs() {
+        while (true) {
+            try {
+                List<Staff> weekdayStaffList = InputValidator.validateStaffList(InputView.inputWeekdayNames());
+                List<Staff> weekendStaffList = InputValidator.validateStaffList(InputView.inputWeekendNames());
+
+                return InputValidator.validateStaffs(weekdayStaffList,weekendStaffList);
             } catch (OncallException e) {
                 OutputView.printErrorMessage(e.getMessage());
             }

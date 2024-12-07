@@ -10,6 +10,16 @@ public class InputView {
         return input();
     }
 
+    public static String inputWeekdayNames() {
+        System.out.println("평일 비상 근무 순번대로 사원 닉네임을 입력하세요>");
+        return input();
+    }
+
+    public static String inputWeekendNames() {
+        System.out.println("휴일 비상 근무 순번대로 사원 닉네임을 입력하세요>");
+        return input();
+    }
+
     private static String input() {
         return Console.readLine();
     }
