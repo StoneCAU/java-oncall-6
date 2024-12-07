@@ -9,6 +9,10 @@ public class WorkLine {
         this.staff = staff;
     }
 
+    public Staff getStaff() {
+        return staff;
+    }
+
     @Override
     public String toString() {
         return dayInfo.toString() + " " + staff.getName();
