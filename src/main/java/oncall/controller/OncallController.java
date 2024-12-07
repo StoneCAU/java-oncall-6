@@ -1,6 +1,7 @@
 package oncall.controller;
 
 import java.util.List;
+import oncall.domain.Roster;
 import oncall.domain.Staff;
 import oncall.domain.Staffs;
 import oncall.domain.WorkInfo;
@@ -13,6 +14,7 @@ public class OncallController {
     public void run() {
         WorkInfo workInfo = getWorkInfo();
         Staffs staffs = getStaffs();
+        getRoster(workInfo, staffs);
     }
 
     private WorkInfo getWorkInfo() {
@@ -37,5 +39,10 @@ public class OncallController {
                 OutputView.printErrorMessage(e.getMessage());
             }
         }
+    }
+
+    private void getRoster(WorkInfo workInfo, Staffs staffs) {
+        Roster roster = new Roster(workInfo, staffs);
+        OutputView.printRoster(roster);
     }
 }

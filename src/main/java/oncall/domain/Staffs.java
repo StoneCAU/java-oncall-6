@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Staffs {
-    List<Staff> weekdayStaffs;
-    List<Staff> weekendStaffs;
+    private List<Staff> weekdayStaffs;
+    private List<Staff> weekendStaffs;
 
     public Staffs(List<Staff> weekdayStaffs, List<Staff> weekendStaffs) {
         this.weekdayStaffs = weekdayStaffs;

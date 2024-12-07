@@ -1,15 +1,15 @@
 package oncall.domain;
 
 public class WorkInfo {
-    private Mouth month;
+    private Month month;
     private DayOfWeek dayOfWeek;
 
-    public WorkInfo(Mouth month, DayOfWeek dayOfWeek) {
+    public WorkInfo(Month month, DayOfWeek dayOfWeek) {
         this.month = month;
         this.dayOfWeek = dayOfWeek;
     }
 
-    public Mouth getMonth() {
+    public Month getMonth() {
         return month;
     }
 

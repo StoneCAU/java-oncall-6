@@ -1,7 +1,7 @@
 package oncall.domain;
 
 public class Staff {
-    String name;
+    private String name;
 
     public Staff(String name) {
         this.name = name;

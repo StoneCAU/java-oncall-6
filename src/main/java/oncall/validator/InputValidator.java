@@ -3,7 +3,7 @@ package oncall.validator;
 import java.util.Arrays;
 import java.util.List;
 import oncall.domain.DayOfWeek;
-import oncall.domain.Mouth;
+import oncall.domain.Month;
 import oncall.domain.Staff;
 import oncall.domain.Staffs;
 import oncall.domain.WorkInfo;
@@ -17,7 +17,7 @@ public class InputValidator {
         int mountValue = parseMonthValue(parsed.get(0));
         DayOfWeek dayOfWeek = DayOfWeek.getDayOfWeekByName(parsed.get(1));
 
-        return new WorkInfo(Mouth.getMonthByMonthValue(mountValue), dayOfWeek);
+        return new WorkInfo(Month.getMonthByMonthValue(mountValue), dayOfWeek);
     }
 
     public static List<Staff> validateStaffList(String names) {

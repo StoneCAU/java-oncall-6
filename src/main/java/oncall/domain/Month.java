@@ -1,13 +1,12 @@
 package oncall.domain;
 
-import java.time.Month;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 import oncall.exception.ErrorMessage;
 import oncall.exception.OncallException;
 
-public enum Mouth {
+public enum Month {
     JANUARY(1, 31, List.of(1)),
     FEBRUARY(1, 28, List.of(1)),
     MARCH(3, 31, List.of()),
@@ -25,7 +24,7 @@ public enum Mouth {
     private int endDay;
     private List<Integer> holidays;
 
-    Mouth(int monthValue, int endDay, List<Integer> holidays) {
+    Month(int monthValue, int endDay, List<Integer> holidays) {
         this.monthValue = monthValue;
         this.endDay = endDay;
         this.holidays = holidays;
@@ -47,8 +46,8 @@ public enum Mouth {
         return IntStream.rangeClosed(1, getEndDay()).boxed().toList();
     }
 
-    public static Mouth getMonthByMonthValue(int mouthValue) {
-        return Arrays.stream(Mouth.values())
+    public static Month getMonthByMonthValue(int mouthValue) {
+        return Arrays.stream(Month.values())
                 .filter(month -> month.getMonthValue() == mouthValue)
                 .findFirst()
                 .orElseThrow(() -> new OncallException(ErrorMessage.INVALID_INPUT));
